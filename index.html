@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queenesha Li | Portfolio</title>
+    <title>Queenesha Li | Game Designer & Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --background: #080b18;
+            --background-light: #10152a;
+
+            --purple: #9b6dff;
+            --purple-dark: #6c45d9;
+
+            --blue: #4ba3ff;
+            --blue-dark: #2468d8;
+
+            --red: #ff5c72;
+            --red-dark: #c93656;
+
+            --text: #f5f7ff;
+            --text-muted: #a9b0c7;
+
+            --border: rgba(255,255,255,0.09);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,235 +41,544 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
-            line-height: 1.6;
+            font-family: "DM Sans", sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* ================= NAV ================= */
+
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            padding: 20px 10%;
+            z-index: 1000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(13, 17, 23, 0.95);
-            border-bottom: 1px solid #21262d;
-            z-index: 1000;
+
+            padding: 20px 9%;
+
+            background: rgba(8, 11, 24, 0.8);
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #a78bfa;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+
+            background: linear-gradient(
+                90deg,
+                var(--purple),
+                var(--blue),
+                var(--red)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
             display: flex;
+            gap: 35px;
             list-style: none;
-            gap: 30px;
         }
 
         nav a {
-            color: #e6edf3;
+            color: var(--text-muted);
             text-decoration: none;
-            transition: 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.25s;
         }
 
         nav a:hover {
-            color: #a78bfa;
+            color: white;
         }
 
-        /* Hero */
+        /* ================= HERO ================= */
+
         .hero {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
-            padding: 100px 10%;
-            background:
-                radial-gradient(circle at 80% 30%, #312e81 0%, transparent 30%),
-                #0d1117;
+
+            padding: 130px 9% 80px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* colorful background glows */
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background: rgba(111, 68, 220, 0.25);
+            filter: blur(130px);
+
+            top: -180px;
+            right: -100px;
+
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            border-radius: 50%;
+
+            background: rgba(30, 112, 255, 0.18);
+            filter: blur(130px);
+
+            bottom: -100px;
+            left: -100px;
+
+            z-index: -1;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 850px;
         }
 
-        .intro {
-            color: #a78bfa;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+        .eyebrow {
+            font-family: "Space Mono", monospace;
+            color: var(--blue);
 
-        h1 {
-            font-size: 70px;
-            line-height: 1.05;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            font-size: 13px;
             margin-bottom: 20px;
         }
 
-        .hero h2 {
-            font-size: 30px;
-            color: #8b949e;
+        h1 {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: clamp(55px, 8vw, 100px);
+            line-height: 0.95;
+
+            letter-spacing: -4px;
+
             margin-bottom: 25px;
         }
 
-        .hero p {
-            color: #b1bac4;
-            max-width: 600px;
+        .gradient-name {
+            background: linear-gradient(
+                100deg,
+                #ffffff 10%,
+                var(--purple) 42%,
+                var(--blue) 72%,
+                var(--red)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-family: "Space Grotesk", sans-serif;
+
+            color: var(--text-muted);
+
+            font-size: clamp(22px, 3vw, 34px);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: var(--text-muted);
+
             font-size: 18px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 35px;
         }
 
         .button {
             display: inline-block;
-            margin-top: 35px;
-            padding: 14px 25px;
+
+            padding: 13px 24px;
+
             border-radius: 8px;
-            background: #7c3aed;
-            color: white;
+
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+
+            transition: 0.25s;
+        }
+
+        .primary-button {
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                var(--purple-dark),
+                var(--blue-dark)
+            );
+        }
+
+        .secondary-button {
+            color: white;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.04);
         }
 
         .button:hover {
-            background: #8b5cf6;
             transform: translateY(-3px);
         }
 
-        /* General Sections */
+        /* ================= SECTIONS ================= */
+
         section {
-            padding: 100px 10%;
+            padding: 110px 9%;
+        }
+
+        .section-label {
+            font-family: "Space Mono", monospace;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            color: var(--purple);
+
+            margin-bottom: 10px;
         }
 
         .section-title {
-            font-size: 36px;
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            letter-spacing: -2px;
+
             margin-bottom: 20px;
         }
 
         .section-description {
-            color: #8b949e;
+            color: var(--text-muted);
+
             max-width: 700px;
+
+            font-size: 17px;
+
             margin-bottom: 50px;
         }
 
-        /* About */
+        /* ================= ABOUT ================= */
+
         .about {
-            background: #161b22;
+            background: var(--background-light);
         }
 
-        .about p {
-            max-width: 800px;
-            color: #c9d1d9;
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+
             font-size: 18px;
+
+            margin-bottom: 15px;
         }
 
-        /* Interests */
+        .about-highlight {
+            border-left: 3px solid var(--purple);
+
+            padding: 25px;
+
+            background: rgba(155, 109, 255, 0.07);
+
+            border-radius: 0 10px 10px 0;
+        }
+
+        .about-highlight p {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 22px;
+
+            color: white;
+        }
+
+        /* ================= INTEREST CARDS ================= */
+
         .cards {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            gap: 22px;
         }
 
         .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            padding: 30px;
-            border-radius: 12px;
+            position: relative;
+
+            padding: 35px;
+
+            min-height: 290px;
+
+            border-radius: 16px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid var(--border);
+
+            overflow: hidden;
+
             transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: #7c3aed;
+        }
+
+        .purple-card:hover {
+            border-color: var(--purple);
+        }
+
+        .blue-card:hover {
+            border-color: var(--blue);
+        }
+
+        .red-card:hover {
+            border-color: var(--red);
+        }
+
+        .card-number {
+            font-family: "Space Mono", monospace;
+
+            font-size: 12px;
+
+            color: var(--text-muted);
         }
 
         .card-icon {
-            font-size: 35px;
-            margin-bottom: 20px;
+            font-size: 38px;
+
+            margin: 35px 0 20px;
         }
 
         .card h3 {
-            margin-bottom: 12px;
-            font-size: 22px;
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 24px;
+
+            margin-bottom: 10px;
         }
 
         .card p {
-            color: #8b949e;
+            color: var(--text-muted);
         }
 
-        /* Skills */
+        .purple-card h3 {
+            color: var(--purple);
+        }
+
+        .blue-card h3 {
+            color: var(--blue);
+        }
+
+        .red-card h3 {
+            color: var(--red);
+        }
+
+        /* ================= SKILLS ================= */
+
         .skills {
-            background: #161b22;
+            background: var(--background-light);
         }
 
-        .skill-container {
+        .skill-list {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 12px;
         }
 
         .skill {
-            padding: 10px 18px;
-            border-radius: 30px;
-            background: #21262d;
-            border: 1px solid #30363d;
+            font-family: "Space Mono", monospace;
+
+            padding: 10px 17px;
+
+            font-size: 13px;
+
+            border-radius: 7px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.035);
+
+            transition: 0.2s;
         }
 
-        /* Projects */
+        .skill:hover {
+            border-color: var(--blue);
+
+            color: var(--blue);
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
         .project {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 700px;
+            min-height: 250px;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.03);
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            border-color: var(--purple);
+            transform: translateY(-5px);
+        }
+
+        .project-tag {
+            font-family: "Space Mono", monospace;
+
+            font-size: 11px;
+
+            color: var(--red);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
         }
 
         .project h3 {
-            margin-bottom: 10px;
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 25px;
+
+            margin: 20px 0 10px;
         }
 
         .project p {
-            color: #8b949e;
+            color: var(--text-muted);
         }
 
-        /* Contact */
+        /* ================= CONTACT ================= */
+
         .contact {
             text-align: center;
-            background: #161b22;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(110, 68, 220, 0.16),
+                    transparent 45%
+                ),
+                var(--background-light);
         }
 
-        .contact p {
-            color: #8b949e;
-            max-width: 550px;
-            margin: auto;
+        .contact .section-description {
+            margin-left: auto;
+            margin-right: auto;
         }
+
+        /* ================= FOOTER ================= */
 
         footer {
-            text-align: center;
-            padding: 30px;
-            color: #6e7681;
-            background: #0d1117;
+            padding: 30px 9%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            border-top: 1px solid var(--border);
+
+            color: #69718c;
+
+            font-size: 13px;
         }
 
-        /* Mobile */
+        footer span {
+            font-family: "Space Mono", monospace;
+        }
+
+        /* ================= MOBILE ================= */
+
         @media (max-width: 800px) {
+
             nav ul {
                 display: none;
             }
 
             h1 {
-                font-size: 48px;
+                letter-spacing: -2px;
             }
 
-            .hero h2 {
-                font-size: 24px;
-            }
-
-            .cards {
+            .cards,
+            .projects-grid,
+            .about-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -253,8 +586,10 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
+
     <nav>
+
         <div class="logo">QL.</div>
 
         <ul>
@@ -263,143 +598,309 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
         </ul>
+
     </nav>
 
-    <!-- Hero -->
+
+    <!-- HERO -->
+
     <section class="hero">
+
         <div class="hero-content">
-            <p class="intro">Hello, I'm</p>
 
-            <h1>Queenesha Li.</h1>
-
-            <h2>Game Design • Gaming • Coding</h2>
-
-            <p>
-                I'm passionate about technology, interactive experiences,
-                and creating games that bring ideas to life. I enjoy exploring
-                both the creative and technical sides of game development.
+            <p class="eyebrow">
+                Game Designer • Developer • Creator
             </p>
 
-            <a class="button" href="#about">Learn More About Me</a>
+            <h1>
+                Hi, I'm
+                <span class="gradient-name">Queenesha Li.</span>
+            </h1>
+
+            <h2>
+                I create, code, and explore digital worlds.
+            </h2>
+
+            <p class="hero-description">
+                I'm interested in game design, programming, and the
+                technology behind interactive experiences. I love
+                combining creativity with code to turn ideas into
+                experiences people can interact with.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects"
+                   class="button primary-button">
+                    View My Work
+                </a>
+
+                <a href="#about"
+                   class="button secondary-button">
+                    About Me
+                </a>
+
+            </div>
+
         </div>
+
     </section>
 
-    <!-- About -->
+
+    <!-- ABOUT -->
+
     <section class="about" id="about">
 
-        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
 
-        <p>
-            I'm Queenesha Li, a student interested in computer science and
-            game design. I enjoy learning how games are created, experimenting
-            with programming, and exploring how technology and creativity can
-            work together to build interactive experiences.
-        </p>
+            <div class="about-text">
+
+                <p class="section-label">01 / About</p>
+
+                <h2 class="section-title">
+                    Creativity meets technology.
+                </h2>
+
+                <p>
+                    I'm Queenesha Li, a student interested in
+                    computer science and game design.
+                </p>
+
+                <p>
+                    I'm especially interested in understanding how
+                    programming, visual design, gameplay mechanics,
+                    and storytelling work together to create
+                    memorable interactive experiences.
+                </p>
+
+                <p>
+                    When I'm not coding, you'll probably find me
+                    playing games, exploring new game mechanics,
+                    or thinking about ideas I could turn into a
+                    future project.
+                </p>
+
+            </div>
+
+            <div class="about-highlight">
+
+                <p>
+                    "Building worlds one line of code at a time."
+                </p>
+
+            </div>
+
+        </div>
 
     </section>
 
-    <!-- Interests -->
+
+    <!-- INTERESTS -->
+
     <section id="interests">
 
-        <h2 class="section-title">My Interests</h2>
+        <p class="section-label">02 / Interests</p>
+
+        <h2 class="section-title">
+            What I'm into.
+        </h2>
 
         <p class="section-description">
-            The things that inspire me to keep learning, experimenting,
-            and creating.
+            My interests combine creative design, technology,
+            and interactive entertainment.
         </p>
+
 
         <div class="cards">
 
-            <div class="card">
+            <div class="card purple-card">
+
+                <span class="card-number">01</span>
+
                 <div class="card-icon">🎮</div>
+
                 <h3>Game Design</h3>
+
                 <p>
-                    I enjoy designing game concepts, environments,
-                    characters, mechanics, and interactive experiences.
+                    Designing worlds, characters, mechanics,
+                    environments, and experiences that make games
+                    interesting and memorable.
                 </p>
+
             </div>
 
-            <div class="card">
-                <div class="card-icon">🕹️</div>
-                <h3>Gaming</h3>
-                <p>
-                    Playing games inspires me to understand how gameplay,
-                    design, storytelling, and player experiences come together.
-                </p>
-            </div>
 
-            <div class="card">
+            <div class="card blue-card">
+
+                <span class="card-number">02</span>
+
                 <div class="card-icon">💻</div>
+
                 <h3>Coding</h3>
+
                 <p>
-                    I enjoy learning programming and using code to turn
-                    ideas into functional programs and interactive projects.
+                    Learning programming and using code to solve
+                    problems, create systems, and bring ideas
+                    to life.
                 </p>
+
+            </div>
+
+
+            <div class="card red-card">
+
+                <span class="card-number">03</span>
+
+                <div class="card-icon">🕹️</div>
+
+                <h3>Gaming</h3>
+
+                <p>
+                    Exploring games not only as entertainment,
+                    but also as inspiration for gameplay,
+                    storytelling, and interactive design.
+                </p>
+
             </div>
 
         </div>
 
     </section>
 
-    <!-- Skills -->
+
+    <!-- SKILLS -->
+
     <section class="skills" id="skills">
 
-        <h2 class="section-title">Skills & Tools</h2>
+        <p class="section-label">03 / Skills</p>
+
+        <h2 class="section-title">
+            Tools & technologies.
+        </h2>
 
         <p class="section-description">
-            Technologies and creative tools I'm learning and working with.
+            Technologies and creative tools I'm learning and
+            developing experience with.
         </p>
 
-        <div class="skill-container">
+
+        <div class="skill-list">
+
             <div class="skill">C++</div>
+
             <div class="skill">JavaScript</div>
+
+            <div class="skill">HTML</div>
+
+            <div class="skill">CSS</div>
+
             <div class="skill">Unity</div>
+
             <div class="skill">Unreal Engine</div>
+
             <div class="skill">Game Design</div>
+
             <div class="skill">Problem Solving</div>
+
+            <div class="skill">Creative Design</div>
+
         </div>
 
     </section>
 
-    <!-- Projects -->
+
+    <!-- PROJECTS -->
+
     <section id="projects">
 
-        <h2 class="section-title">Projects</h2>
+        <p class="section-label">04 / Projects</p>
+
+        <h2 class="section-title">
+            Things I'm building.
+        </h2>
 
         <p class="section-description">
-            A place for projects I create as I continue developing
-            my programming and game design skills.
+            A growing collection of programming and game design
+            projects as I continue developing my skills.
         </p>
 
-        <div class="project">
 
-            <h3>Game Design Projects</h3>
+        <div class="projects-grid">
 
-            <p>
-                I'm continuing to build programming and game development
-                projects while learning more about C++, game engines,
-                and interactive design.
-            </p>
+            <div class="project">
+
+                <span class="project-tag">
+                    Game Development
+                </span>
+
+                <h3>Game Design Projects</h3>
+
+                <p>
+                    Projects exploring game mechanics,
+                    interactive environments, characters,
+                    and gameplay systems using game engines.
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <span class="project-tag">
+                    Programming
+                </span>
+
+                <h3>Coding Projects</h3>
+
+                <p>
+                    Programs and experiments created while
+                    developing my programming and
+                    problem-solving skills.
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
-    <!-- Contact -->
+
+    <!-- CONTACT -->
+
     <section class="contact">
 
-        <h2 class="section-title">Let's Create Something</h2>
+        <p class="section-label">05 / What's Next?</p>
 
-        <p>
-            I'm always interested in learning new technologies,
-            experimenting with game ideas, and improving my skills
-            as a developer and designer.
+        <h2 class="section-title">
+            Keep creating.
+        </h2>
+
+        <p class="section-description">
+            I'm continuing to learn, experiment, and build
+            projects as I develop my skills in computer science
+            and game design.
         </p>
+
+        <a href="#"
+           class="button primary-button">
+            Back to Top ↑
+        </a>
 
     </section>
 
+
+    <!-- FOOTER -->
+
     <footer>
-        © 2026 Queenesha Li • Designed & Built with HTML + CSS
+
+        <p>
+            © 2026 Queenesha Li
+        </p>
+
+        <span>
+            Designed & coded by Queenesha
+        </span>
+
     </footer>
 
 </body>
