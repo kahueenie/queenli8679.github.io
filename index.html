@@ -1,1 +1,406 @@
-12312
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queenesha Li | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 17, 23, 0.95);
+            border-bottom: 1px solid #21262d;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #a78bfa;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #e6edf3;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 10%;
+            background:
+                radial-gradient(circle at 80% 30%, #312e81 0%, transparent 30%),
+                #0d1117;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .intro {
+            color: #a78bfa;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 70px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            color: #8b949e;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #b1bac4;
+            max-width: 600px;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 25px;
+            border-radius: 8px;
+            background: #7c3aed;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #8b5cf6;
+            transform: translateY(-3px);
+        }
+
+        /* General Sections */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: #8b949e;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        /* About */
+        .about {
+            background: #161b22;
+        }
+
+        .about p {
+            max-width: 800px;
+            color: #c9d1d9;
+            font-size: 18px;
+        }
+
+        /* Interests */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 30px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #7c3aed;
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #8b949e;
+        }
+
+        /* Skills */
+        .skills {
+            background: #161b22;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: #21262d;
+            border: 1px solid #30363d;
+        }
+
+        /* Projects */
+        .project {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 700px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #8b949e;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: #161b22;
+        }
+
+        .contact p {
+            color: #8b949e;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #6e7681;
+            background: #0d1117;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            nav ul {
+                display: none;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">QL.</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="intro">Hello, I'm</p>
+
+            <h1>Queenesha Li.</h1>
+
+            <h2>Game Design • Gaming • Coding</h2>
+
+            <p>
+                I'm passionate about technology, interactive experiences,
+                and creating games that bring ideas to life. I enjoy exploring
+                both the creative and technical sides of game development.
+            </p>
+
+            <a class="button" href="#about">Learn More About Me</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p>
+            I'm Queenesha Li, a student interested in computer science and
+            game design. I enjoy learning how games are created, experimenting
+            with programming, and exploring how technology and creativity can
+            work together to build interactive experiences.
+        </p>
+
+    </section>
+
+    <!-- Interests -->
+    <section id="interests">
+
+        <h2 class="section-title">My Interests</h2>
+
+        <p class="section-description">
+            The things that inspire me to keep learning, experimenting,
+            and creating.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>Game Design</h3>
+                <p>
+                    I enjoy designing game concepts, environments,
+                    characters, mechanics, and interactive experiences.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🕹️</div>
+                <h3>Gaming</h3>
+                <p>
+                    Playing games inspires me to understand how gameplay,
+                    design, storytelling, and player experiences come together.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Coding</h3>
+                <p>
+                    I enjoy learning programming and using code to turn
+                    ideas into functional programs and interactive projects.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">Skills & Tools</h2>
+
+        <p class="section-description">
+            Technologies and creative tools I'm learning and working with.
+        </p>
+
+        <div class="skill-container">
+            <div class="skill">C++</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Unity</div>
+            <div class="skill">Unreal Engine</div>
+            <div class="skill">Game Design</div>
+            <div class="skill">Problem Solving</div>
+        </div>
+
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2 class="section-title">Projects</h2>
+
+        <p class="section-description">
+            A place for projects I create as I continue developing
+            my programming and game design skills.
+        </p>
+
+        <div class="project">
+
+            <h3>Game Design Projects</h3>
+
+            <p>
+                I'm continuing to build programming and game development
+                projects while learning more about C++, game engines,
+                and interactive design.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+
+        <h2 class="section-title">Let's Create Something</h2>
+
+        <p>
+            I'm always interested in learning new technologies,
+            experimenting with game ideas, and improving my skills
+            as a developer and designer.
+        </p>
+
+    </section>
+
+    <footer>
+        © 2026 Queenesha Li • Designed & Built with HTML + CSS
+    </footer>
+
+</body>
+</html>
